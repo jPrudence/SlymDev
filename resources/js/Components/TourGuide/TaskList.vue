@@ -6,7 +6,7 @@ const taskList = ref([
     {
         id: 1,
         title: "Create more inbox",
-        illustration: "/images/tasks/create-more-inbox.svg",
+        illustration_url: "/images/tasks/create-more-inbox.svg",
         description: "Create more inbox, welcome your new contact by a message",
         xp: 500,
         completed: true,
@@ -14,7 +14,8 @@ const taskList = ref([
     {
         id: 2,
         title: "Manage your messaging rules",
-        illustration: "/images/tasks/manage-your-messaging-rules.svg",
+        illustration_url: "/images/tasks/manage-your-messaging-rules.svg",
+        video_url: "https://www.youtube.com/watch?v=fdf44544dfdf",
         description: "Create more inbox, welcome your new contact by a message",
         xp: 100,
         completed: false,
@@ -35,7 +36,8 @@ const progress = computed(() => {
             :key="task.id"
             :title="task.title"
             :description="task.description"
-            :illustration="task.illustration"
+            :illustrationUrl="task.illustration_url"
+            :videoUrl="task.video_url"
             :xp="task.xp"
             :completed="task.completed"
         />

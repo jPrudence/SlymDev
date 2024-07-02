@@ -7,6 +7,7 @@ import CompletedTaskIcon from "@Components/Icons/CompletedTaskIcon.vue";
 import UncompletedTaskIcon from "@Components/Icons/UncompletedTaskIcon.vue";
 import XPEarnedIcon from "@Components/Icons/XPEarnedIcon.vue";
 import ExternalLinkIcon from "@Components/Icons/ExternalLinkIcon.vue";
+import BlurredPlayIcon from "@Components/Icons/BlurredPlayIcon.vue";
 
 defineProps({
     title: {
@@ -17,7 +18,10 @@ defineProps({
         type: String,
         required: true,
     },
-    illustration: {
+    illustrationUrl: {
+        type: String,
+    },
+    videoUrl: {
         type: String,
     },
     xp: {
@@ -35,12 +39,20 @@ defineProps({
     <div
         class="task-card items-center p-6 bg-white rounded-[21px] flex flex-col gap-4 transition-transform transform hover:scale-105"
     >
-        <img
-            v-if="illustration"
-            class="w-full h-50"
-            :src="illustration"
-            :alt="title"
-        />
+        <div class="relative w-full">
+            <img
+                v-if="illustrationUrl"
+                class="w-full object-cover"
+                :src="illustrationUrl"
+                :alt="title"
+            />
+
+            <a v-if="videoUrl" target="_blank" :href="videoUrl">
+                <BlurredPlayIcon
+                    class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-110"
+                />
+            </a>
+        </div>
 
         <div class="flex gap-2 w-full">
             <div class="mt-[0.15rem]">
@@ -49,8 +61,7 @@ defineProps({
             </div>
             <div class="flex flex-col gap-2 w-full">
                 <div class="flex gap-2 justify-between">
-                    <a
-                        href="#"
+                    <div
                         class="flex items-center font-bold leading-6 text-base"
                         :class="{
                             'text-grey-900': !completed,
@@ -59,8 +70,10 @@ defineProps({
                     >
                         {{ title }}
 
-                        <ExternalLinkIcon v-if="!completed" class="ml-1" />
-                    </a>
+                        <a v-if="videoUrl" target="_blank" :href="videoUrl">
+                            <ExternalLinkIcon class="ml-1" />
+                        </a>
+                    </div>
                     <div
                         class="flex items-center text-gradient-primary font-bold leading-6 text-base whitespace-nowrap"
                     >
