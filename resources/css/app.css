@@ -22,6 +22,10 @@ body {
     background-clip: text;
 }
 
+.bg-gradient-primary {
+    background: var(--color-gradient-primary);
+}
+
 .border-alice-blue {
     border-color: var(--color-alice-blue);
 }
