@@ -21,7 +21,7 @@ defineProps({
             <div class="flex-1 flex flex-col overflow-hidden">
                 <main class="flex-1 overflow-x-hidden overflow-y-auto">
                     <div
-                        class="container mx-auto bg-white/50 shadow-container-card rounded-tl-md rounded-bl-md rounded-tr-2xl rounded-br-2xl"
+                        class="container-card container mx-auto bg-white/50 rounded-tl-md rounded-bl-md rounded-tr-2xl rounded-br-2xl"
                     >
                         <slot></slot>
                     </div>
@@ -30,3 +30,9 @@ defineProps({
         </div>
     </div>
 </template>
+
+<style scoped>
+.container-card {
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.03);
+}
+</style>

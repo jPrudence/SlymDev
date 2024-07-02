@@ -9,11 +9,11 @@ export default {
         extend: {
             colors: {
                 secondary: "var(--color-secondary)",
-                "gradient-primary": "var(--color-gradient-primary)",
                 grey: {
                     900: "#25213E",
                     800: "#514f5f",
                     600: "#7E7D84",
+                    500: "#8C8D90",
                     400: "#a7a7a5",
                 },
             },
@@ -33,6 +33,11 @@ export default {
             letterSpacing: {
                 1: "0.063rem",
                 0.01: "0.01rem",
+                0.031: "0.031rem",
+                0.009: "0.009rem",
+            },
+            borderRadius: {
+                "5lg": "2.5rem",
             },
         },
     },

@@ -31,7 +31,7 @@ const progressBarWidth = computed(() => `${props.progress}%`);
 </script>
 
 <template>
-    <div class="p-6">
+    <div class="p-6 transition-transform hover:scale-105">
         <div class="mb-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
