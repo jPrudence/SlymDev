@@ -21,7 +21,7 @@ const closeDialog = () => {
             <div
                 class="fixed inset-0 z-50 bg-white/10 backdrop-blur-sm flex items-center justify-center"
             >
-                <DialogPanel class="w-50 bg-white/80 rounded-md py-12 px-6">
+                <DialogPanel class="w-1/4 bg-white/80 rounded-md py-12 px-6">
                     <div class="flex flex-col items-center gap-4">
                         <img
                             class="w-5/6"
