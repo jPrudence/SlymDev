@@ -16,7 +16,7 @@ const taskList = ref([
         id: 2,
         title: "Manage your messaging rules",
         illustration_url: "/images/tasks/manage-your-messaging-rules.svg",
-        video_url: "https://www.youtube.com/watch?v=fdf44544dfdf",
+        video_url: "https://cv.jprudence.com",
         description: "Create more inbox, welcome your new contact by a message",
         xp: 100,
         completed: false,
