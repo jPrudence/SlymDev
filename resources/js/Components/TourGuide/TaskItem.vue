@@ -1,7 +1,9 @@
 <script setup>
-import { defineProps } from "vue";
+import { ref } from "vue";
 
 import { useNumberFormatter } from "@/Composables/useNumberFormatter";
+
+import EarnedXPModal from "./EarnedXPModal.vue";
 
 import CompletedTaskIcon from "@Components/Icons/CompletedTaskIcon.vue";
 import UncompletedTaskIcon from "@Components/Icons/UncompletedTaskIcon.vue";
@@ -9,7 +11,7 @@ import XPEarnedIcon from "@Components/Icons/XPEarnedIcon.vue";
 import ExternalLinkIcon from "@Components/Icons/ExternalLinkIcon.vue";
 import BlurredPlayIcon from "@Components/Icons/BlurredPlayIcon.vue";
 
-defineProps({
+const props = defineProps({
     title: {
         type: String,
         required: true,
@@ -33,6 +35,11 @@ defineProps({
         default: false,
     },
 });
+
+const isEarnedXPModalOpen = ref(false);
+const toggleEarnedXPModal = () => {
+    isEarnedXPModalOpen.value = !isEarnedXPModalOpen.value;
+};
 </script>
 
 <template>
@@ -56,8 +63,10 @@ defineProps({
 
         <div class="flex gap-2 w-full">
             <div class="mt-[0.15rem]">
-                <CompletedTaskIcon v-if="completed" />
-                <UncompletedTaskIcon v-else />
+                <component
+                    :is="completed ? CompletedTaskIcon : UncompletedTaskIcon"
+                    @click="toggleEarnedXPModal"
+                />
             </div>
             <div class="flex flex-col gap-2 w-full">
                 <div class="flex gap-2 justify-between">
@@ -87,6 +96,8 @@ defineProps({
                 </p>
             </div>
         </div>
+
+        <EarnedXPModal v-model="isEarnedXPModalOpen" :XP="xp" />
     </div>
 </template>
 

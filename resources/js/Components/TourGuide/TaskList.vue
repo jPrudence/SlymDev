@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import TaskItem from "./TaskItem.vue";
+import CompletedGuideModal from "./CompletedGuideModal.vue";
 
 const taskList = ref([
     {
@@ -28,6 +29,11 @@ const progress = computed(() => {
     ).length;
     return Math.round((completedSteps / taskList.value.length) * 100);
 });
+
+const isCompletedGuideModalOpen = ref(false);
+const toggleCompletedGuideModal = () => {
+    isCompletedGuideModalOpen.value = !isCompletedGuideModalOpen.value;
+};
 </script>
 <template>
     <div class="flex flex-col gap-6">
@@ -40,6 +46,18 @@ const progress = computed(() => {
             :videoUrl="task.video_url"
             :xp="task.xp"
             :completed="task.completed"
+        />
+
+        <button
+            @click="toggleCompletedGuideModal"
+            class="px-4 py-2 bg-gradient-primary text-white rounded-xl text-xs outline-none focus:outline-none"
+        >
+            Open Completed Guide Modal
+        </button>
+
+        <CompletedGuideModal
+            v-model="isCompletedGuideModalOpen"
+            :XP="taskList[0].xp"
         />
     </div>
 </template>
