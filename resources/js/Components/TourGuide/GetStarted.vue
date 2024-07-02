@@ -37,7 +37,7 @@ const progressBarWidth = computed(() => `${props.progress}%`);
                 <div class="flex items-center justify-center">
                     <GradientBlueStarsIcon
                         width="21"
-                        class="relative top-0.5 md:visible hidden"
+                        class="relative top-0.5"
                     />
                     <span
                         class="ml-1 text-2xl -tracking-0.031 font-bold leading-9 text-gradient-primary md:text-left text-center"
@@ -46,11 +46,7 @@ const progressBarWidth = computed(() => `${props.progress}%`);
                     </span>
                 </div>
                 <div class="flex md:flex-row flex-col items-center md:gap-3">
-                    <GetStartedIcon class="md:visible hidden" />
-                    <GradientBlueStarsIcon
-                        width="21"
-                        class="relative md:hidden"
-                    />
+                    <GetStartedIcon />
                     <div
                         class="flex flex-col -tracking-0.01 font-bold text-center"
                     >
