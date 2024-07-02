@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from "vue";
 
+import TourGuideProgress from "@Components/TourGuide/Progress.vue";
+
 import CloseIcon from "@Components/Icons/CloseIcon.vue";
 import GradientBlueStarsIcon from "@Components/Icons/GradientBlueStarsIcon.vue";
 import InboxIcon from "@Components/Icons/InboxIcon.vue";
@@ -72,18 +74,29 @@ const advancedMessagesItems = [
                 <li>
                     <a
                         href="#"
-                        class="flex items-center py-3 bg-secondary rounded-xl"
+                        class="flex items-center justify-between py-3 bg-secondary rounded-xl"
                         :class="isSidebareOpened ? 'px-4' : 'px-3'"
                         @click="toggleSidebar"
                     >
-                        <GradientBlueStarsIcon />
-                        <span
-                            v-if="isSidebareOpened"
-                            class="ml-2 -tracking-0.01 font-bold leading-6 text-gradient-primary"
-                            :class="isSidebareOpened ? 'text-sm' : 'text-tiny'"
-                        >
-                            DM Tour Guide
-                        </span>
+                        <div v-if="isSidebareOpened" class="flex">
+                            <GradientBlueStarsIcon />
+                            <span
+                                class="ml-2 -tracking-0.01 font-bold leading-6 text-gradient-primary"
+                                :class="
+                                    isSidebareOpened ? 'text-sm' : 'text-tiny'
+                                "
+                            >
+                                DM Tour Guide
+                            </span>
+                        </div>
+
+                        <TourGuideProgress
+                            :progress="2"
+                            :total="5"
+                            :class="{
+                                'relative -right-1': !isSidebareOpened,
+                            }"
+                        />
                     </a>
                 </li>
                 <li class="flex flex-col gap-4">
