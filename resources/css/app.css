@@ -11,9 +11,14 @@
     --color-alice-blue: #f4f7f8;
 }
 
+*::-webkit-scrollbar {
+    width: 0;
+}
+
 body {
     background-image: url("/images/app-background.png");
     font-family: "Manrope", sans-serif;
+    overflow-y: hidden;
 }
 
 .text-gradient-primary {

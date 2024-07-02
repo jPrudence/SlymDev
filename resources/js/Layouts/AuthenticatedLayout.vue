@@ -16,16 +16,14 @@ defineProps({
     <div class="bg-gray-100">
         <Header :title="title" />
 
-        <div class="flex h-screen px-5 pb-5 gap-2">
+        <div class="flex px-5 gap-2 pb-[5%] h-[93dvh]">
             <Sidebar title="DM Setting" />
-            <div class="flex-1 flex flex-col overflow-hidden">
-                <main class="flex-1 overflow-x-hidden overflow-y-auto">
-                    <div
-                        class="container-card container mx-auto bg-white/50 rounded-tl-md rounded-bl-md rounded-tr-2xl rounded-br-2xl"
-                    >
-                        <slot></slot>
-                    </div>
-                </main>
+            <div
+                class="container-card container mx-auto bg-white/50 rounded-tl-md rounded-bl-md rounded-tr-2xl rounded-br-2xl overflow-y-hidden h-full"
+            >
+                <div class="h-full overflow-y-auto">
+                    <slot></slot>
+                </div>
             </div>
         </div>
     </div>
