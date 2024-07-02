@@ -44,7 +44,7 @@ const toggleEarnedXPModal = () => {
 
 <template>
     <div
-        class="task-card items-center p-6 bg-white rounded-[21px] flex flex-col gap-4 transition-transform transform hover:scale-105"
+        class="task-card items-center md:p-6 bg-white rounded-[21px] flex flex-col gap-4 transition-transform transform hover:scale-105"
     >
         <div class="relative w-full">
             <img
@@ -56,26 +56,30 @@ const toggleEarnedXPModal = () => {
 
             <a v-if="videoUrl" target="_blank" :href="videoUrl">
                 <BlurredPlayIcon
-                    class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform hover:scale-110"
+                    class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-transform"
                 />
             </a>
         </div>
 
         <div class="flex gap-2 w-full">
-            <div class="mt-[0.15rem]">
+            <div class="mt-[0.15rem] md:pl-0 pl-2">
                 <component
                     :is="completed ? CompletedTaskIcon : UncompletedTaskIcon"
+                    class="hover:cursor-pointer"
                     @click="toggleEarnedXPModal"
                 />
             </div>
-            <div class="flex flex-col gap-2 w-full">
-                <div class="flex gap-2 justify-between">
+            <div class="flex flex-col gap-2 w-full md:pr-0 pr-2">
+                <div
+                    class="flex gap-2 justify-between md:flex-row flex-col-reverse"
+                >
                     <div
-                        class="flex items-center font-bold leading-6 text-base"
+                        class="flex items-center font-bold leading-6 text-base hover:cursor-pointer"
                         :class="{
                             'text-grey-900': !completed,
                             'line-through text-grey-800': completed,
                         }"
+                        @click="toggleEarnedXPModal"
                     >
                         {{ title }}
 
@@ -84,7 +88,8 @@ const toggleEarnedXPModal = () => {
                         </a>
                     </div>
                     <div
-                        class="flex items-center text-gradient-primary font-bold leading-6 text-base whitespace-nowrap"
+                        class="flex items-center text-gradient-primary font-bold leading-6 text-base whitespace-nowrap hover:cursor-pointer"
+                        @click="toggleEarnedXPModal"
                     >
                         <XPEarnedIcon v-if="completed" class="mr-1" />
                         <span v-else class="mr-1 font-extrabold">+</span>

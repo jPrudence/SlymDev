@@ -33,21 +33,27 @@ const progressBarWidth = computed(() => `${props.progress}%`);
 <template>
     <div class="p-6 transition-transform hover:scale-105">
         <div class="mb-6">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
+            <div class="md:flex items-center justify-between">
+                <div class="flex items-center justify-center">
                     <GradientBlueStarsIcon
                         width="21"
-                        class="relative top-0.5"
+                        class="relative top-0.5 md:visible hidden"
                     />
                     <span
-                        class="ml-1 text-2xl -tracking-0.031 font-bold leading-9 text-gradient-primary"
+                        class="ml-1 text-2xl -tracking-0.031 font-bold leading-9 text-gradient-primary md:text-left text-center"
                     >
                         Get Started
                     </span>
                 </div>
-                <div class="flex items-center gap-3">
-                    <GetStartedIcon />
-                    <div class="flex flex-col -tracking-0.01 font-bold">
+                <div class="flex md:flex-row flex-col items-center md:gap-3">
+                    <GetStartedIcon class="md:visible hidden" />
+                    <GradientBlueStarsIcon
+                        width="21"
+                        class="relative md:hidden"
+                    />
+                    <div
+                        class="flex flex-col -tracking-0.01 font-bold text-center"
+                    >
                         <div class="flex">
                             <span
                                 class="text-sm text-gradient-primary leading-5"
@@ -55,7 +61,9 @@ const progressBarWidth = computed(() => `${props.progress}%`);
                                 You earned
                                 {{ useNumberFormatter(totalEarnedXP) }}
                             </span>
-                            <SparkleIcon class="relative -top-1 right-0.5" />
+                            <SparkleIcon
+                                class="relative -top-1 right-0.5 animate-ping"
+                            />
                         </div>
                         <span class="text-tiny leading-4">
                             Total XP to earn :

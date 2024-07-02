@@ -1,5 +1,6 @@
 <script setup>
 import { Dialog, DialogPanel } from "@headlessui/vue";
+import { useNumberFormatter } from "@/Composables/useNumberFormatter";
 
 defineProps({
     XP: {
@@ -21,8 +22,10 @@ const closeDialog = () => {
             <div
                 class="fixed inset-0 z-50 bg-white/10 backdrop-blur-sm flex items-center justify-center"
             >
-                <DialogPanel class="w-1/4 bg-white/80 rounded-md py-12 px-6">
-                    <div class="flex flex-col items-center gap-4">
+                <DialogPanel
+                    class="md:w-1/4 sm:w-4/5 w-11/12 bg-white/80 rounded-md py-12 px-6 shadow-lg"
+                >
+                    <div class="flex flex-col items-center gap-4 text-center">
                         <img
                             class="w-5/6"
                             src="/images/earn-congratulations.svg"
@@ -32,7 +35,8 @@ const closeDialog = () => {
                             Congratulations You've Earned
                         </p>
                         <p class="text-3xl font-semibold text-gradient-primary">
-                            {{ XP }} <span class="text-2xl">XP</span>
+                            {{ useNumberFormatter(XP) }}
+                            <span class="text-2xl">XP</span>
                         </p>
 
                         <button
